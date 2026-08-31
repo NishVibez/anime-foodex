@@ -1,26 +1,217 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f7f0e3;
+  --paper-raised: #fffaf0;
+  --paper-deep: #ede1cf;
+  --wash: #eee3d3;
+  --ink: #181512;
+  --ink-muted: #4f4841;
+  --ink-faint: #756c63;
+  --line: #cfc1ae;
+  --vermilion: #d74a2a;
+  --vermilion-soft: #f5d1c7;
+  --saffron: #e8a528;
+  --saffron-soft: #f8e4b5;
+  --jade: #2f7d66;
+  --jade-soft: #cfe4dc;
+  --focus: #0f6fbd;
+  --shadow: rgba(24, 21, 18, 0.14);
+  --font-display: var(--font-noto-jp), var(--font-geist), sans-serif;
+}
+
+.dark {
+  --paper: #181512;
+  --paper-raised: #211d19;
+  --paper-deep: #2a241f;
+  --wash: #312a24;
+  --ink: #f7f0e3;
+  --ink-muted: #d0c6b7;
+  --ink-faint: #a99e90;
+  --line: #4a4037;
+  --vermilion: #ef6a4a;
+  --vermilion-soft: #4b2822;
+  --saffron: #f0b64b;
+  --saffron-soft: #49371d;
+  --jade: #4aa588;
+  --jade-soft: #203d34;
+  --focus: #7dc4ff;
+  --shadow: rgba(0, 0, 0, 0.34);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--line);
+}
+
+html {
+  background: var(--paper);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  background:
+    radial-gradient(
+      circle at 12% 14%,
+      color-mix(in srgb, var(--saffron) 8%, transparent),
+      transparent 24rem
+    ),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist), Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--saffron);
+  color: #181512;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-underline-offset: 0.18em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.paper-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--line) 34%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--line) 34%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 34px 34px;
+}
+
+.halftone {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--ink) 28%, transparent) 1px,
+    transparent 1.4px
+  );
+  background-size: 7px 7px;
+}
+
+.ink-panel {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  border-radius: 1.25rem;
+  background: var(--paper-raised);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.torn-edge {
+  clip-path: polygon(
+    0 2%,
+    3% 0,
+    7% 2%,
+    11% 0,
+    16% 2%,
+    20% 0,
+    25% 2%,
+    30% 0,
+    35% 2%,
+    40% 0,
+    45% 2%,
+    50% 0,
+    55% 2%,
+    60% 0,
+    65% 2%,
+    70% 0,
+    75% 2%,
+    80% 0,
+    85% 2%,
+    90% 0,
+    95% 2%,
+    100% 0,
+    100% 98%,
+    96% 100%,
+    91% 98%,
+    86% 100%,
+    81% 98%,
+    76% 100%,
+    71% 98%,
+    66% 100%,
+    61% 98%,
+    56% 100%,
+    51% 98%,
+    46% 100%,
+    41% 98%,
+    36% 100%,
+    31% 98%,
+    26% 100%,
+    21% 98%,
+    16% 100%,
+    11% 98%,
+    6% 100%,
+    0 98%
+  );
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  aside,
+  nav {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
 }

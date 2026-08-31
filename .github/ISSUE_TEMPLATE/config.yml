@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a vulnerability privately
+    url: https://github.com/NishVibez/anime-foodex/security/advisories/new
+    about: Do not publish security reports or private data in an issue.

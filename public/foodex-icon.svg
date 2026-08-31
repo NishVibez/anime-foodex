@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Anime FooDex">
+  <rect width="512" height="512" rx="120" fill="#F7F0E3"/>
+  <path d="M82 256c0-99 75-176 174-176s174 77 174 176-75 176-174 176S82 355 82 256Z" fill="#D74A2A" stroke="#181512" stroke-width="24"/>
+  <circle cx="256" cy="256" r="92" fill="none" stroke="#F7F0E3" stroke-width="24"/>
+  <path d="m194 194 124 124m0-124L194 318" stroke="#F7F0E3" stroke-width="24" stroke-linecap="round"/>
+  <path d="M114 396h284" stroke="#E8A528" stroke-width="28" stroke-linecap="round"/>
+</svg>
