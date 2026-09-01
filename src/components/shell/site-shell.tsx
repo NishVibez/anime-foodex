@@ -50,12 +50,18 @@ export function SiteShell({
 
         <div className="mt-auto rounded-2xl border border-[var(--ink)] bg-[var(--saffron-soft)] p-4 shadow-[4px_4px_0_var(--ink)]">
           <Badge tone="ink">
-            {accessTier === "guest" ? "Free Vault" : "Quest board"}
+            {accessTier === "guest"
+              ? "Free Vault"
+              : accessTier === "supporter"
+                ? "Supporter Vault"
+                : "Member Vault"}
           </Badge>
           <p className="mt-3 text-sm leading-snug font-extrabold">
             {accessTier === "guest"
               ? "Save recipes and turn cooking into a collection."
-              : "Choose a fresh challenge for your next dish."}
+              : accessTier === "supporter"
+                ? "Every recipe, unlimited saves, and your next quest are ready."
+                : "Your saves, cooking progress, and next quest are ready."}
           </p>
           <Link
             className="mt-3 inline-flex text-xs font-black underline"

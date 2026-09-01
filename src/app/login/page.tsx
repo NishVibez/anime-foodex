@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { PasswordField } from "@/components/auth/password-field";
 import { FoodexMark } from "@/components/brand/foodex-mark";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -140,20 +141,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
                 type="email"
               />
             </label>
-            <label className="grid gap-2 text-sm font-black">
-              Password
-              <input
-                autoComplete={
-                  mode === "signup" ? "new-password" : "current-password"
-                }
-                className="min-h-12 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 font-medium outline-none focus:border-[var(--ink)] focus:ring-2 focus:ring-[var(--focus)]/35"
-                minLength={8}
-                name="password"
-                placeholder="At least 8 characters"
-                required
-                type="password"
-              />
-            </label>
+            <PasswordField
+              autoComplete={
+                mode === "signup" ? "new-password" : "current-password"
+              }
+            />
             <button
               className={cn(
                 buttonVariants({ variant: "vermilion", size: "lg" }),

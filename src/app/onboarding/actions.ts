@@ -35,5 +35,6 @@ export async function completeOnboarding(formData: FormData) {
   const result = data?.[0];
   if (error || !result) redirect("/onboarding?error=unavailable");
   if (result.account_state !== "active") redirect("/onboarding/ineligible");
-  redirect(safeRelativePath(parsed.data.next) as Route);
+  const next = safeRelativePath(parsed.data.next);
+  redirect(`/welcome?next=${encodeURIComponent(next)}` as Route);
 }

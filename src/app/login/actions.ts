@@ -28,7 +28,8 @@ export async function signInWithEmail(formData: FormData) {
     try {
       const supabase = await createClient();
       const { error } = await supabase.auth.signInWithPassword(parsed.data);
-      if (!error) destination = next;
+      if (!error)
+        destination = `/welcome?next=${encodeURIComponent(next)}`;
     } catch {
       destination = loginDestination("configuration", next, "signin");
     }

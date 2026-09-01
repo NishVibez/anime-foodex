@@ -17,6 +17,21 @@ export async function GET(request: Request) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (error) throw error;
 
+    const { data: contextData, error: contextError } = await supabase.rpc(
+      "get_my_account_context",
+    );
+    const context = contextData?.[0];
+    if (!contextError && context?.account_state === "active") {
+      const welcome = new URL("/welcome", url.origin);
+      welcome.searchParams.set("next", next);
+      return NextResponse.redirect(welcome);
+    }
+    if (!contextError && context?.account_state === "restricted") {
+      return NextResponse.redirect(
+        new URL("/onboarding/ineligible", url.origin),
+      );
+    }
+
     const onboarding = new URL("/onboarding", url.origin);
     onboarding.searchParams.set("next", next);
     return NextResponse.redirect(onboarding);
