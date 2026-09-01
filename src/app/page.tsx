@@ -125,7 +125,7 @@ export default function HomePage() {
 
       <section
         aria-label="Catalog targets"
-        className="border-b border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
+        className="border-b border-[#181512] bg-[#181512] text-[#f7f0e3]"
       >
         <div className="mx-auto grid max-w-[95rem] grid-cols-2 divide-x divide-white/15 px-5 sm:px-8 md:grid-cols-4">
           {[
