@@ -44,7 +44,7 @@ export default function CollectionsPage() {
                 </p>
                 <h2 className="display mt-2 text-4xl">{collection.label}</h2>
                 <div className="mt-7 flex flex-wrap gap-2">
-                  <Badge tone="paper">84 recipe gate</Badge>
+                  <Badge tone="paper">84+ recipe minimum</Badge>
                   <Badge tone="paper">200+ evidence gate</Badge>
                 </div>
                 <p className="mt-6 flex items-center gap-2 text-xs font-bold text-[var(--jade)]">

@@ -17,7 +17,7 @@
   --jade-soft: #cfe4dc;
   --focus: #0f6fbd;
   --shadow: rgba(24, 21, 18, 0.14);
-  --font-display: var(--font-noto-jp), var(--font-geist), sans-serif;
+  --font-display: "Noto Sans JP Variable", var(--font-geist-sans), sans-serif;
 }
 
 .dark {
@@ -42,8 +42,8 @@
 @theme inline {
   --color-background: var(--paper);
   --color-foreground: var(--ink);
-  --font-sans: var(--font-geist);
-  --font-mono: var(--font-mono);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 * {
@@ -65,7 +65,7 @@ body {
     ),
     var(--paper);
   color: var(--ink);
-  font-family: var(--font-geist), Arial, sans-serif;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
   text-rendering: optimizeLegibility;
 }
 

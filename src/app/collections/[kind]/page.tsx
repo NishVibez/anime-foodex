@@ -40,7 +40,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
   return (
     <>
       <PageIntro
-        description={`${collection.eyebrow}. This primary shelf counts toward 84 recipes and 200 independently verified occurrence records at GA.`}
+        description={`${collection.eyebrow}. This primary shelf must contain at least 84 recipes and 200 independently verified occurrence records at GA.`}
         eyebrow="Primary collection"
         title={collection.label}
       />

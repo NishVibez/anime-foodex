@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import { connection } from "next/server";
 
 import { PwaRegister } from "@/components/providers/pwa-register";
@@ -7,25 +8,8 @@ import { OfflineSync } from "@/components/providers/offline-sync";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteShell } from "@/components/shell/site-shell";
 
+import "@fontsource-variable/noto-sans-jp";
 import "./globals.css";
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const noto = Noto_Sans_JP({
-  variable: "--font-noto-jp",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const mono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -85,7 +69,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
 
   return (
     <html
-      className={`${geist.variable} ${noto.variable} ${mono.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
       lang="en"
       suppressHydrationWarning
     >

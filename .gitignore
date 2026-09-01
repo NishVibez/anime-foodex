@@ -13,6 +13,12 @@
 # testing
 /coverage
 
+# private research extraction intermediates
+/.firecrawl/
+/tmp/pdfs/
+__pycache__/
+*.py[cod]
+
 # next.js
 /.next/
 /out/

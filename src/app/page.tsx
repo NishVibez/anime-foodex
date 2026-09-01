@@ -129,7 +129,7 @@ export default function HomePage() {
       >
         <div className="mx-auto grid max-w-[95rem] grid-cols-2 divide-x divide-white/15 px-5 sm:px-8 md:grid-cols-4">
           {[
-            ["420", "GA recipe gate"],
+            ["420+", "GA recipe minimum"],
             ["1,000+", "verified appearances"],
             ["5", "balanced collections"],
             ["4", "availability regions"],

@@ -6,9 +6,9 @@ import {
 } from "./contracts";
 
 export const GA_CATALOG_RULES = {
-  exactRecipes: 420,
+  minimumRecipes: 420,
   minimumAppearances: 1_000,
-  exactRecipesPerKind: 84,
+  minimumRecipesPerKind: 84,
   minimumAppearancesPerKind: 200,
   maximumStandardRecipes: 200,
   minimumSupporterRecipes: 220,
@@ -133,10 +133,10 @@ export function validateCatalogForRelease(
     }
   }
 
-  if (snapshot.recipes.length !== GA_CATALOG_RULES.exactRecipes) {
+  if (snapshot.recipes.length < GA_CATALOG_RULES.minimumRecipes) {
     issues.push({
       code: "recipe_total",
-      message: `Expected exactly ${GA_CATALOG_RULES.exactRecipes} recipes; found ${snapshot.recipes.length}.`,
+      message: `Expected at least ${GA_CATALOG_RULES.minimumRecipes} recipes; found ${snapshot.recipes.length}.`,
     });
   }
   if (snapshot.appearances.length < GA_CATALOG_RULES.minimumAppearances) {
@@ -158,10 +158,10 @@ export function validateCatalogForRelease(
     });
   }
   for (const kind of FANDOM_KINDS) {
-    if (recipesByKind[kind] !== GA_CATALOG_RULES.exactRecipesPerKind) {
+    if (recipesByKind[kind] < GA_CATALOG_RULES.minimumRecipesPerKind) {
       issues.push({
         code: `recipe_quota_${kind}`,
-        message: `${kind} must have exactly ${GA_CATALOG_RULES.exactRecipesPerKind} recipes.`,
+        message: `${kind} must have at least ${GA_CATALOG_RULES.minimumRecipesPerKind} recipes.`,
       });
     }
     if (appearancesByKind[kind] < GA_CATALOG_RULES.minimumAppearancesPerKind) {

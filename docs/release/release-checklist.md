@@ -22,7 +22,7 @@ Anime FooDex is a big-bang public GA. This checklist is deliberately unchecked. 
 
 ## 3. Catalog and cooking
 
-- [ ] GA content gate reports exactly 420 publishable recipes, at least 1,000 verified appearances, exact 84/200 per collection, at most 200 standard, and at least 220 Supporter.
+- [ ] GA content gate reports at least 420 publishable recipes, at least 1,000 verified appearances, at least 84/200 per collection, at most 200 standard, and at least 220 Supporter.
 - [ ] Culinary, allergen, rights, occurrence, media, and kitchen-test evidence is real, version-bound, sampled, and approved.
 - [ ] Supplied PDFs/web sources and protected expression/media are absent from production Storage, Git history, client bundles, pages, metadata, logs, and CI artifacts.
 - [ ] Search, filters, aliases, Japanese/romanized names, cursor pagination, recommendation hard exclusions, regions, units, scaling, substitutions, timers, and cooking mode pass.

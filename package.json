@@ -9,24 +9,27 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
+    "test:research": "python -m unittest discover -s tools/tests -p \"test_*.py\"",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm test:research && pnpm build"
   },
   "engines": {
     "node": "22.x",
     "pnpm": ">=10.0.0"
   },
   "dependencies": {
+    "@fontsource-variable/noto-sans-jp": "^5.3.0",
     "@stripe/stripe-js": "^9.14.0",
     "@supabase/ssr": "^0.12.5",
     "@supabase/supabase-js": "^2.112.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "file-type": "^22.0.2",
+    "geist": "^1.7.2",
     "idb": "^8.0.3",
     "lucide-react": "^1.37.0",
     "next": "16.3.3",

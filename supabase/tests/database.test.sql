@@ -2,7 +2,7 @@ begin;
 
 create extension if not exists pgtap with schema extensions;
 
-select plan(32);
+select plan(41);
 
 select has_schema('catalog', 'catalog schema exists');
 select has_schema('community', 'community schema exists');
@@ -16,6 +16,50 @@ select ok(
 select ok(
   (select relforcerowsecurity from pg_class where oid = 'community.posts'::regclass),
   'community posts force RLS'
+);
+select has_table(
+  'catalog',
+  'source_recipe_candidates',
+  'the private source candidate queue exists'
+);
+select ok(
+  (select relrowsecurity from pg_class where oid = 'catalog.source_recipe_candidates'::regclass),
+  'source candidates have RLS enabled'
+);
+select ok(
+  (select relforcerowsecurity from pg_class where oid = 'catalog.source_recipe_candidates'::regclass),
+  'source candidates force RLS'
+);
+select ok(
+  exists (
+    select 1
+    from pg_policies
+    where schemaname = 'catalog'
+      and tablename = 'source_recipe_candidates'
+      and policyname = 'source_recipe_candidates_no_client_access'
+      and permissive = 'RESTRICTIVE'
+  ),
+  'source candidates have an explicit restrictive client deny policy'
+);
+select ok(
+  not has_table_privilege('anon', 'catalog.source_recipe_candidates', 'select'),
+  'anonymous users cannot select source candidates'
+);
+select ok(
+  not has_table_privilege('authenticated', 'catalog.source_recipe_candidates', 'select'),
+  'authenticated users cannot select source candidates'
+);
+select ok(
+  not has_table_privilege('authenticated', 'catalog.source_recipe_candidates', 'insert'),
+  'authenticated users cannot insert source candidates'
+);
+select ok(
+  not has_table_privilege('authenticated', 'catalog.source_recipe_candidates', 'update'),
+  'authenticated users cannot update source candidates'
+);
+select ok(
+  not has_table_privilege('authenticated', 'catalog.source_recipe_candidates', 'delete'),
+  'authenticated users cannot delete source candidates'
 );
 select ok(
   not has_table_privilege('anon', 'api.recipe_details', 'select'),
