@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import { connection } from "next/server";
 
 import { PwaRegister } from "@/components/providers/pwa-register";
 import { OfflineSync } from "@/components/providers/offline-sync";
@@ -76,7 +77,12 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  // A per-request CSP nonce can only be attached to Next.js framework scripts
+  // during request-time rendering. Keep the entire document on that boundary so
+  // strict-dynamic never blocks hydration on an otherwise static route.
+  await connection();
+
   return (
     <html
       className={`${geist.variable} ${noto.variable} ${mono.variable}`}
