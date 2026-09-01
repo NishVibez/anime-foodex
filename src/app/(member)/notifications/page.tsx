@@ -20,8 +20,8 @@ export default async function NotificationsPage() {
   return (
     <>
       <PageIntro
-        description="In-app notices for cooking, community, moderation, quests, and billing. No first-party email or push at GA."
-        eyebrow="Inbox"
+        description="Catch up on reactions, cooking milestones, quest rewards, account updates, and anything else that happened while you were away."
+        eyebrow="What you missed"
         title="Notifications"
         tone="saffron"
       />

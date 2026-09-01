@@ -12,9 +12,9 @@ export default function SuggestRecipePage() {
   return (
     <>
       <PageIntro
-        description="Suggest a food moment with a precise source declaration. Every submission is moderated and owner-reviewed; it never publishes directly."
-        eyebrow="Editorial intake"
-        title="Bring us a lead."
+        description="Spotted a dish we should cover? Tell us the title, where it appears, and why fans remember it. Our editors will verify the moment before anything is published."
+        eyebrow="Help grow the FooDex"
+        title="What should we cook next?"
       />
       <section className="mx-auto max-w-3xl px-5 py-12 sm:px-8">
         <SuggestionForm />

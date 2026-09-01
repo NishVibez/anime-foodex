@@ -57,8 +57,8 @@ export default async function VaultPage() {
             {progress?.total_xp ?? 0} XP
           </div>
         }
-        description="Your saved recipes, private collections, cooking history, notes, and offline kitchen cards—kept out of public search and other profiles."
-        eyebrow="Private collection"
+        description="Everything you want to cook, everything you already made, and every note you want to remember—saved privately in one place."
+        eyebrow="Your personal cooklist"
         title="The Vault"
       />
       <div className="mx-auto max-w-[95rem] space-y-12 px-5 py-12 sm:px-8">

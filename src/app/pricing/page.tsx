@@ -14,9 +14,9 @@ export default function PricingPage() {
   return (
     <>
       <PageIntro
-        description="Unlock the complete library, unlimited offline cooking, advanced tools, cosmetics, and an openly disclosed competitive XP multiplier—while helping fund independent recipe testing and rights-safe media."
-        eyebrow="Supporter tier"
-        title="Back the kitchen. Open the Vault."
+        description="Get every exclusive recipe, unlimited offline cooking and collections, advanced filters, no ads, and premium profile rewards—while helping the test kitchen publish more dishes."
+        eyebrow="Anime FooDex Supporter"
+        title="More recipes. More rewards. No interruptions."
         tone="ink"
       />
       <section className="mx-auto max-w-[95rem] px-5 py-12 sm:px-8 sm:py-16">

@@ -47,10 +47,13 @@ export function RecipeCard({ recipe }: { recipe: EditorialRecipe }) {
             ) : null}
             {recipe.access}
           </Badge>
-          <span className="text-xs font-bold text-[var(--ink-faint)]">
-            {recipe.work}
+          <span className="text-right text-[0.65rem] font-black tracking-[0.08em] text-[var(--ink-faint)] uppercase">
+            {recipe.connectionLabel}
           </span>
         </div>
+        <p className="mb-2 text-sm font-black text-[var(--vermilion)]">
+          {recipe.work}
+        </p>
         <h3 className="display text-xl leading-tight">
           <Link href={href}>{recipe.title}</Link>
         </h3>

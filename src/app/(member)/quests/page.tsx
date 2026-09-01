@@ -56,8 +56,8 @@ export default function QuestsPage() {
             <Flame className="mr-1" size={12} /> 12-day streak
           </Badge>
         }
-        description="Versioned, server-authoritative challenges award through an append-only ledger. Cooldowns and idempotency stop replays; every bonus is visible."
-        eyebrow="Quest board"
+        description="Cook across new worlds, build streaks, earn XP, and unlock rewards. Every quest gives you a fresh reason to try one more dish."
+        eyebrow="Your next cooking challenge"
         title="Make progress taste good."
         tone="ink"
       />

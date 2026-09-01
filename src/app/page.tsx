@@ -26,18 +26,19 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-[95rem] gap-8 px-5 py-9 sm:px-8 sm:py-14 xl:grid-cols-[0.9fr_1.1fr] xl:items-center xl:py-18">
           <div className="relative z-10 max-w-3xl">
             <div className="mb-6 flex flex-wrap items-center gap-3">
-              <Badge tone="vermilion">New encyclopedia</Badge>
+              <Badge tone="vermilion">Fandom food, made cookable</Badge>
               <span className="text-xs font-bold tracking-[0.08em] text-[var(--ink-faint)] uppercase">
-                Original recipes · Evidence-led context
+                Anime · Games · Films · Animated worlds
               </span>
             </div>
             <h1 className="display max-w-4xl text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.84]">
-              Every world has a{" "}
-              <span className="text-[var(--vermilion)]">table.</span>
+              Cook the dishes that{" "}
+              <span className="text-[var(--vermilion)]">stole the scene.</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-[var(--ink-muted)] sm:text-lg">
-              Discover the food moments you remember, then cook an independently
-              authored version designed for a real kitchen—wherever yours is.
+              Search by anime, show, game, film, or craving. Anime FooDex turns
+              unforgettable food moments into practical recipes, regional swaps,
+              cooking quests, and a collection you can call your own.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -46,7 +47,7 @@ export default function HomePage() {
                 )}
                 href="/discover"
               >
-                Explore the FooDex <ArrowRight aria-hidden="true" size={18} />
+                Find a dish <ArrowRight aria-hidden="true" size={18} />
               </Link>
               <Link
                 className={cn(
@@ -54,14 +55,14 @@ export default function HomePage() {
                 )}
                 href="/recommend"
               >
-                <Sparkles aria-hidden="true" size={18} /> What should I eat?
+                <Sparkles aria-hidden="true" size={18} /> Pick dinner for me
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold text-[var(--ink-faint)]">
               {[
-                "Metric + imperial",
-                "4 availability regions",
-                "Hard allergen exclusions",
+                "Free recipes to start",
+                "Metric and imperial",
+                "Allergen-aware matching",
               ].map((item) => (
                 <span className="flex items-center gap-1.5" key={item}>
                   <Check
@@ -88,9 +89,11 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
               <div className="absolute right-5 bottom-5 left-5 flex items-end justify-between gap-4 text-white">
                 <div>
-                  <p className="eyebrow text-white/70">Tonight’s spread</p>
+                  <p className="eyebrow text-white/70">
+                    Your watchlist, served
+                  </p>
                   <p className="mt-1 text-xl font-black">
-                    Five dishes. Five paths in.
+                    Find the scene. Cook the dish.
                   </p>
                 </div>
                 <span className="grid size-12 shrink-0 place-items-center rounded-full border border-white/60 bg-black/30 backdrop-blur">
@@ -129,7 +132,7 @@ export default function HomePage() {
       >
         <div className="mx-auto grid max-w-[95rem] grid-cols-2 divide-x divide-white/15 px-5 sm:px-8 md:grid-cols-4">
           {[
-            ["420+", "GA recipe minimum"],
+            ["420+", "launch recipe goal"],
             ["1,000+", "verified appearances"],
             ["5", "balanced collections"],
             ["4", "availability regions"],
@@ -149,8 +152,8 @@ export default function HomePage() {
       <section className="mx-auto max-w-[95rem] px-5 py-16 sm:px-8 sm:py-22">
         <SectionHeading
           action={{ href: "/collections", label: "All collections" }}
-          eyebrow="Five shelves · one encyclopedia"
-          title="Choose your doorway"
+          eyebrow="Browse by universe"
+          title="Start with what you love"
         />
         <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
           {collections.map((collection, index) => {
@@ -200,8 +203,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-[95rem] px-5 py-16 sm:px-8 sm:py-22">
           <SectionHeading
             action={{ href: "/recipes", label: "Browse every recipe" }}
-            eyebrow="From our test bench"
-            title="Cook the moment"
+            eyebrow="From screen to stove"
+            title="Fan-favorite dishes. Real-kitchen methods."
           />
           <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredRecipes.map((recipe) => (
@@ -215,16 +218,14 @@ export default function HomePage() {
         <div className="halftone absolute inset-0 opacity-25" />
         <div className="relative mx-auto grid max-w-[95rem] gap-10 px-5 py-16 sm:px-8 sm:py-22 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <p className="eyebrow text-white/75">
-              Signature recommendation flow
-            </p>
+            <p className="eyebrow text-white/75">Dinner, decided</p>
             <h2 className="display mt-3 max-w-3xl text-5xl leading-[0.9] sm:text-7xl">
-              Tell us what&apos;s in the fridge.
+              Your pantry already knows the answer.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-              We hard-exclude allergens and dislikes, then rank the rest by your
-              time, mood, skill, region, and available ingredients. Two close
-              matches. One safe wildcard. Reasons included.
+              Tell us what you have, how much time you can spare, and what you
+              are craving. We&apos;ll surface two strong matches and one safe
+              wildcard—with clear reasons and no mystery ingredients.
             </p>
             <Link
               className={cn(
@@ -233,8 +234,7 @@ export default function HomePage() {
               )}
               href="/recommend"
             >
-              Find tonight&apos;s dish{" "}
-              <ArrowRight aria-hidden="true" size={18} />
+              Match me with dinner <ArrowRight aria-hidden="true" size={18} />
             </Link>
           </div>
           <div className="ink-panel rotate-1 p-5 text-[var(--ink)] sm:p-7">
@@ -246,7 +246,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-xl border border-[var(--line)] bg-[var(--jade-soft)] p-5">
               <p className="eyebrow text-[var(--jade)]">Top choice</p>
-              <p className="display mt-1 text-3xl">Forest picnic onigiri</p>
+              <p className="display mt-1 text-3xl">Satsuki’s picnic onigiri</p>
               <div className="mt-4 grid gap-2 text-sm text-[var(--ink-muted)]">
                 <p className="flex items-start gap-2">
                   <Check
@@ -276,7 +276,7 @@ export default function HomePage() {
                 <p className="text-xs font-black tracking-[0.1em] uppercase">
                   Safe wildcard
                 </p>
-                <p className="mt-1 font-bold">Starlight berry parfait</p>
+                <p className="mt-1 font-bold">Stardrop berry parfait</p>
               </div>
               <Sparkles aria-hidden="true" className="text-[var(--saffron)]" />
             </div>
@@ -287,8 +287,8 @@ export default function HomePage() {
       <section className="mx-auto grid max-w-[95rem] gap-10 px-5 py-16 sm:px-8 sm:py-22 lg:grid-cols-[1fr_0.8fr]">
         <div>
           <SectionHeading
-            eyebrow="Around the table"
-            title="Cook. Post. Cheer."
+            eyebrow="Your cooking party"
+            title="Turn watchlists into cooklists."
           />
           <div className="mt-8 grid gap-3">
             {activity.map((item) => (
@@ -325,7 +325,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <aside className="rounded-3xl border border-[var(--ink)] bg-[var(--ink)] p-6 text-[var(--paper)] shadow-[8px_8px_0_var(--saffron)] sm:p-8">
+        <aside className="rounded-3xl border border-[var(--ink)] bg-[#181512] p-6 text-[#f7f0e3] shadow-[8px_8px_0_var(--saffron)] sm:p-8">
           <ShieldCheck className="text-[var(--saffron)]" size={35} />
           <p className="eyebrow mt-6 text-white/60">The publication promise</p>
           <h2 className="display mt-2 text-4xl leading-none">
@@ -351,7 +351,7 @@ export default function HomePage() {
               [
                 "4",
                 "Rights-cleared media",
-                "Original or licensed imagery with an audit trail.",
+                "Original or licensed imagery, checked before it reaches you.",
               ],
             ].map(([number, title, body]) => (
               <div className="grid grid-cols-[2rem_1fr] gap-3" key={number}>

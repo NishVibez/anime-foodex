@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   const next = safeRelativePath(url.searchParams.get("next"));
 
   if (!code) {
-    return NextResponse.redirect(new URL("/login?error=oauth", url.origin));
+    return NextResponse.redirect(new URL("/login?error=callback", url.origin));
   }
 
   try {
@@ -21,6 +21,6 @@ export async function GET(request: Request) {
     onboarding.searchParams.set("next", next);
     return NextResponse.redirect(onboarding);
   } catch {
-    return NextResponse.redirect(new URL("/login?error=oauth", url.origin));
+    return NextResponse.redirect(new URL("/login?error=callback", url.origin));
   }
 }

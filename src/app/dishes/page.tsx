@@ -8,7 +8,7 @@ import { featuredRecipes } from "@/content/experience";
 export const metadata: Metadata = {
   title: "Dishes",
   description:
-    "Explore canonical dishes separately from interpretations and media appearances.",
+    "Explore ramen, onigiri, curry, desserts, and other dishes across anime, games, films, and animated worlds.",
   alternates: { canonical: "/dishes" },
 };
 
@@ -16,9 +16,9 @@ export default function DishesPage() {
   return (
     <>
       <PageIntro
-        description="One canonical dish can have many media appearances and many independently authored interpretations. Keeping them separate prevents a reference from masquerading as a recipe."
-        eyebrow="Canonical dish index"
-        title="The food before the fiction."
+        description="Ramen, onigiri, curry, parfaits, and everything between. Explore the real dish, the fandom moments that made it memorable, and the versions you can cook."
+        eyebrow="Browse by craving"
+        title="Know the dish. Find its worlds."
       />
       <section className="mx-auto max-w-[95rem] px-5 py-12 sm:px-8 sm:py-16">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

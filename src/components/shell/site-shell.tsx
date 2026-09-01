@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Crown, Search } from "lucide-react";
+import { Crown, Search, Vault } from "lucide-react";
 
 import { FoodexMark } from "@/components/brand/foodex-mark";
+import { ConversionPrompts } from "@/components/marketing/conversion-prompts";
 import {
   DesktopNavigation,
   MobileNavigation,
@@ -10,12 +11,19 @@ import { ThemeToggle } from "@/components/shell/theme-toggle";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { AccessTier } from "@/domain/contracts";
 
-export function SiteShell({ children }: { children: React.ReactNode }) {
+export function SiteShell({
+  accessTier,
+  children,
+}: {
+  accessTier: AccessTier;
+  children: React.ReactNode;
+}) {
   return (
     <div className="min-h-dvh lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
       <a
-        className="sr-only z-[100] rounded bg-[var(--ink)] px-4 py-3 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        className="sr-only z-[100] rounded bg-[#181512] px-4 py-3 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         href="#main-content"
       >
         Skip to content
@@ -41,16 +49,20 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <DesktopNavigation />
 
         <div className="mt-auto rounded-2xl border border-[var(--ink)] bg-[var(--saffron-soft)] p-4 shadow-[4px_4px_0_var(--ink)]">
-          <div className="mb-2 flex items-center justify-between">
-            <Badge tone="ink">Weekly quest</Badge>
-            <span className="font-mono text-xs font-bold">4 / 7</span>
-          </div>
-          <p className="text-sm leading-snug font-extrabold">
-            Cook across three worlds
+          <Badge tone="ink">
+            {accessTier === "guest" ? "Free Vault" : "Quest board"}
+          </Badge>
+          <p className="mt-3 text-sm leading-snug font-extrabold">
+            {accessTier === "guest"
+              ? "Save recipes and turn cooking into a collection."
+              : "Choose a fresh challenge for your next dish."}
           </p>
-          <div className="mt-3 h-2 overflow-hidden rounded-full border border-[var(--ink)] bg-[var(--paper)]">
-            <div className="h-full w-[57%] bg-[var(--vermilion)]" />
-          </div>
+          <Link
+            className="mt-3 inline-flex text-xs font-black underline"
+            href={accessTier === "guest" ? "/login?mode=signup" : "/quests"}
+          >
+            {accessTier === "guest" ? "Create free account" : "View my quests"}
+          </Link>
         </div>
       </aside>
 
@@ -80,25 +92,41 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             </Link>
 
             <ThemeToggle />
-            <Link
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "sm" }),
-                "hidden sm:inline-flex",
-              )}
-              href="/login"
-            >
-              Sign in
-            </Link>
-            <Link
-              className={cn(
-                buttonVariants({ variant: "vermilion", size: "sm" }),
-                "px-4",
-              )}
-              href="/pricing"
-            >
-              <Crown aria-hidden="true" size={15} />
-              Supporter
-            </Link>
+            {accessTier === "guest" ? (
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  "hidden sm:inline-flex",
+                )}
+                href="/login"
+              >
+                Sign in
+              </Link>
+            ) : (
+              <Link
+                className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+                href="/vault"
+              >
+                <Vault aria-hidden="true" size={15} /> My Vault
+              </Link>
+            )}
+            {accessTier !== "supporter" ? (
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "vermilion", size: "sm" }),
+                  "px-4",
+                )}
+                href="/pricing"
+              >
+                <Crown aria-hidden="true" size={15} />
+                Go Supporter
+              </Link>
+            ) : (
+              <Badge tone="saffron">
+                <Crown aria-hidden="true" className="mr-1" size={12} />
+                Supporter
+              </Badge>
+            )}
           </div>
         </header>
 
@@ -107,6 +135,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       </div>
 
       <MobileNavigation />
+      <ConversionPrompts accessTier={accessTier} />
     </div>
   );
 }
@@ -123,9 +152,9 @@ function Footer() {
             </span>
           </div>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--ink-muted)]">
-            Original, kitchen-reviewed interpretations of memorable food
-            moments. Fandom context is evidence-led; recipes and photography are
-            independently created.
+            Find the food you remember from anime, games, films, and animated
+            worlds—then cook an independently developed version made for a real
+            kitchen.
           </p>
         </div>
         <div className="text-sm">
@@ -144,6 +173,10 @@ function Footer() {
             <Link href="/policies/privacy">Privacy</Link>
             <Link href="/policies/terms">Terms</Link>
             <Link href="/policies/takedown">Takedowns</Link>
+            <p className="pt-2 text-xs leading-relaxed">
+              Fan-made and independent. Not affiliated with featured studios,
+              publishers, or game creators.
+            </p>
           </div>
         </div>
       </div>

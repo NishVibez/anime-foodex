@@ -49,9 +49,9 @@ export default function IngredientsPage() {
   return (
     <>
       <PageIntro
-        description="Ingredient records carry aliases, market availability, substitution ratios, dietary effects, and inherited allergens so a swap never silently breaks a safety rule."
-        eyebrow="Pantry knowledge graph"
-        title="Know the ingredient. Find the local path."
+        description="Can’t find the exact noodle, rice, sauce, or vegetable? See what it is, what it does, and which tested local alternative keeps the dish on track."
+        eyebrow="A smarter fandom pantry"
+        title="Missing an ingredient shouldn’t end the quest."
         tone="saffron"
       />
       <section className="mx-auto max-w-[95rem] px-5 py-12 sm:px-8 sm:py-16">

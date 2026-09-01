@@ -22,9 +22,9 @@ export default async function FeedPage() {
   return (
     <>
       <PageIntro
-        description="A reverse-chronological feed from people you follow. No algorithmic outrage loop, DMs, live chat, or unreviewed recipe publishing."
-        eyebrow="Community"
-        title="Around your table"
+        description="See what the cooks you follow are making, celebrating, and saving—served in a simple newest-first feed."
+        eyebrow="Your cooking circle"
+        title="See what’s on everyone’s table."
         tone="jade"
       />
       <section className="mx-auto grid max-w-4xl gap-5 px-5 py-12 sm:px-8">

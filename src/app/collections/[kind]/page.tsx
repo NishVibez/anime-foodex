@@ -40,8 +40,8 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
   return (
     <>
       <PageIntro
-        description={`${collection.eyebrow}. This primary shelf must contain at least 84 recipes and 200 independently verified occurrence records at GA.`}
-        eyebrow="Primary collection"
+        description={`${collection.eyebrow}. Browse the featured dishes, see the world each one comes from, and sort your next cooking adventure by time or difficulty.`}
+        eyebrow="Explore the collection"
         title={collection.label}
       />
       <section className="mx-auto max-w-[95rem] px-5 py-12 sm:px-8 sm:py-16">

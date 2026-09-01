@@ -6,7 +6,7 @@ import { RecommendationStudio } from "@/components/recommendation/recommendation
 export const metadata: Metadata = {
   title: "What should I eat?",
   description:
-    "Get deterministic, safety-constrained fandom food recommendations from your pantry, mood, time, skill, and region.",
+    "Match your pantry, mood, time, skill, region, and dietary needs with a fandom dish you can cook tonight.",
   alternates: { canonical: "/recommend" },
 };
 
@@ -14,9 +14,9 @@ export default function RecommendPage() {
   return (
     <>
       <PageIntro
-        description="A deterministic recommendation—not a generated recipe. Safety constraints remove unsuitable dishes; pantry fit, mood, time, skill, and regional availability rank what remains."
+        description="Add what you have, your mood, your time, and your dietary needs. Get two best matches plus one safe wildcard—and understand why each one fits."
         eyebrow="What should I eat?"
-        title="Your pantry has a plot twist."
+        title="Turn what you have into what you want."
         tone="saffron"
       />
       <section className="mx-auto max-w-[95rem] px-5 py-10 sm:px-8 sm:py-14">

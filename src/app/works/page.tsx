@@ -9,7 +9,7 @@ import { featuredRecipes } from "@/content/experience";
 export const metadata: Metadata = {
   title: "Works",
   description:
-    "Browse works and the evidence-led food connections associated with them.",
+    "Browse anime, shows, games, and films to find every connected Anime FooDex dish.",
   alternates: { canonical: "/works" },
 };
 
@@ -20,9 +20,9 @@ export default function WorksPage() {
   return (
     <>
       <PageIntro
-        description="A work is separate from a franchise, edition, episode, chapter, location, and dish. That distinction keeps every occurrence precise and correctable."
-        eyebrow="Works & worlds"
-        title="Where the food moment lives."
+        description="Start with the anime, show, film, or game you love and see every connected dish in one place. No more trying to remember which episode made you hungry."
+        eyebrow="Browse by anime, show, game, or film"
+        title="Your favorite worlds have menus."
       />
       <section className="mx-auto max-w-[95rem] px-5 py-12 sm:px-8 sm:py-16">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

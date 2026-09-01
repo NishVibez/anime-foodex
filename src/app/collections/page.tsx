@@ -17,9 +17,9 @@ export default function CollectionsPage() {
   return (
     <>
       <PageIntro
-        description="Five primary shelves keep the catalog broad and auditable. Each GA shelf requires exactly 84 independently authored recipes and at least 200 verified food connections."
-        eyebrow="The five shelves"
-        title="A balanced fandom pantry."
+        description="Jump from anime comfort food to game inventory classics, cinematic feasts, animated favorites, and destination treats—all without losing your place."
+        eyebrow="Five ways into the FooDex"
+        title="Every fandom brings something to the table."
       />
       <section className="mx-auto max-w-[95rem] px-5 py-12 sm:px-8 sm:py-16">
         <div className="grid gap-5 lg:grid-cols-2 2xl:grid-cols-3">

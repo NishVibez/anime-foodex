@@ -79,7 +79,7 @@ export default async function RecipePreviewPage({ params }: RecipePageProps) {
         type="application/ld+json"
       />
       <article>
-        <header className="relative overflow-hidden border-b border-[var(--ink)] bg-[var(--ink)] text-white">
+        <header className="relative overflow-hidden border-b border-[var(--ink)] bg-[#181512] text-white">
           <div className="absolute inset-0 opacity-34">
             <Image
               alt=""
@@ -109,7 +109,9 @@ export default async function RecipePreviewPage({ params }: RecipePageProps) {
                   {recipe.kind.replace("_", " ")}
                 </Badge>
               </div>
-              <p className="eyebrow mt-6 text-white/60">{recipe.work}</p>
+              <p className="eyebrow mt-6 text-[var(--saffron)]">
+                {recipe.connectionLabel} {recipe.work}
+              </p>
               <h1 className="display mt-2 text-5xl leading-[0.87] sm:text-7xl lg:text-8xl">
                 {recipe.title}
               </h1>
@@ -129,13 +131,18 @@ export default async function RecipePreviewPage({ params }: RecipePageProps) {
               </div>
             </div>
             <div className="rounded-2xl border border-white/25 bg-black/45 p-5 backdrop-blur-md">
-              <p className="eyebrow text-[var(--saffron)]">Fandom context</p>
+              <p className="eyebrow text-[var(--saffron)]">
+                Why fans know this dish
+              </p>
+              <p className="mt-2 text-lg font-black text-white">
+                {recipe.work}
+              </p>
               <p className="mt-3 text-sm leading-relaxed text-white/80">
                 {recipe.context}
               </p>
               <div className="mt-5 flex items-center gap-2 border-t border-white/15 pt-4 text-xs font-bold text-white/60">
-                <BookOpenCheck size={16} /> Evidence locator held in editorial
-                record
+                <BookOpenCheck size={16} /> Source connection reviewed before
+                publication
               </div>
             </div>
           </div>
@@ -144,14 +151,16 @@ export default async function RecipePreviewPage({ params }: RecipePageProps) {
         <div className="mx-auto grid max-w-[95rem] gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:py-16">
           <div>
             <section aria-labelledby="preview-heading">
-              <p className="eyebrow text-[var(--vermilion)]">Public preview</p>
+              <p className="eyebrow text-[var(--vermilion)]">
+                Your next cooking quest
+              </p>
               <h2 className="display mt-2 text-4xl" id="preview-heading">
-                What you&apos;ll cook
+                Bring the scene to your table
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-[var(--ink-muted)]">
-                {recipe.teaser} The full version includes structured quantities,
-                scalable yield, equipment, substitutions, timers, allergen
-                notes, source provenance, and distraction-free cooking mode.
+                {recipe.teaser} Unlock the kitchen card for scalable quantities,
+                step timers, equipment, regional substitutions, allergen notes,
+                and a distraction-free mode that stays with you while you cook.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {recipe.tags.map((tag) => (
@@ -189,12 +198,12 @@ export default async function RecipePreviewPage({ params }: RecipePageProps) {
                     <LockKeyhole size={22} />
                   </span>
                   <h2 className="display mt-6 text-3xl" id="locked-heading">
-                    The kitchen card stays in the Vault.
+                    Ready to cook the full version?
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--ink-muted)]">
                     {recipe.access === "supporter"
-                      ? "This is a Supporter-exclusive recipe. Join to unlock every quantity, step, substitution, and offline cooking session."
-                      : "Create a free account to unlock the complete standard recipe and keep your cooking progress."}
+                      ? `Supporter unlocks this ${recipe.work} recipe, every quantity and step, regional substitutions, and unlimited offline cooking.`
+                      : `Create a free account to cook the complete ${recipe.work} recipe, save it to your Vault, and keep your progress.`}
                   </p>
                   <Link
                     className={cn(
@@ -212,8 +221,8 @@ export default async function RecipePreviewPage({ params }: RecipePageProps) {
                     {canCook
                       ? "Open cooking mode"
                       : recipe.access === "supporter"
-                        ? "See Supporter access"
-                        : "Unlock free"}
+                        ? "Unlock with Supporter"
+                        : "Create free account"}
                     <ArrowRight size={17} />
                   </Link>
                 </div>

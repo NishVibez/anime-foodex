@@ -79,12 +79,12 @@ const plans: Record<
 };
 
 const features = [
-  "Every Supporter recipe and collection",
-  "Unlimited private collections and offline saves",
-  "Advanced filters and personal export",
-  "No ads in any Supporter session",
-  "Profile frames, badge themes, and seasonal cosmetics",
-  "Transparent 10% competitive XP multiplier",
+  "Every exclusive recipe and premium collection",
+  "Unlimited offline recipes and private cooklists",
+  "Advanced filters, scaling tools, and personal export",
+  "An entirely ad-free Anime FooDex",
+  "Supporter profile frames, badges, and seasonal rewards",
+  "A clearly disclosed 10% competitive XP boost",
 ];
 
 export function PricingDeck() {
@@ -244,7 +244,7 @@ export function PricingDeck() {
               ) : (
                 <Crown size={17} />
               )}
-              Claim founding price
+              Lock in founding price
             </Button>
           </article>
         ))}
@@ -280,18 +280,18 @@ export function PricingDeck() {
           [
             [
               Sparkles,
-              "A real 30-day campaign",
-              "Begins on the public GA date. The future price and its effective date remain visible.",
+              "Founding access, honestly priced",
+              "The 30-day launch offer begins at public GA, with the future price and effective date shown clearly.",
             ],
             [
               ShieldCheck,
-              "No fake countdown",
-              "Your 15-minute claim window starts only after you deliberately claim; it creates checkout, not payment pressure.",
+              "No pressure tricks",
+              "A 15-minute price claim begins only when you choose it. It reserves checkout creation; it never pretends your payment is expiring.",
             ],
             [
               Crown,
-              "Lifetime, stated plainly",
-              "One-time access lasts for the operating lifetime of Anime FooDex and is governed by the published terms.",
+              "Lifetime means the life of the service",
+              "One payment keeps Supporter access for as long as Anime FooDex operates, exactly as stated in the terms.",
             ],
           ] satisfies Array<[LucideIcon, string, string]>
         ).map(([Icon, title, body]) => (

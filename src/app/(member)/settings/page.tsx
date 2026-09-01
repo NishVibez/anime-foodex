@@ -14,8 +14,8 @@ export default function SettingsPage() {
   return (
     <>
       <PageIntro
-        description="Manage privacy, consent, display, notification, export, and deletion controls. Sensitive account fields remain private regardless of profile visibility."
-        eyebrow="Account controls"
+        description="Shape Anime FooDex around your kitchen: privacy, display, consent, notifications, account exports, and deletion are all under your control."
+        eyebrow="Make the FooDex yours"
         title="Settings"
       />
       <div className="mx-auto max-w-4xl space-y-6 px-5 py-12 sm:px-8">

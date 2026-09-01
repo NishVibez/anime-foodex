@@ -29,9 +29,9 @@ export default function DiscoverPage() {
             </p>
           </div>
         }
-        description="Wander by craving, season, collection, ingredient, or community trail. Every route leads back to a cited food appearance and an independently authored kitchen interpretation."
-        eyebrow="Discovery board"
-        title="Find your next food arc."
+        description="Follow a craving, revisit a favorite world, or let the community lead you somewhere unexpected. Every trail ends with a dish you can actually make."
+        eyebrow="Your next delicious obsession"
+        title="There’s always another dish to discover."
         tone="jade"
       />
       <div className="mx-auto max-w-[95rem] space-y-16 px-5 py-12 sm:px-8 sm:py-16">

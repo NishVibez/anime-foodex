@@ -14,9 +14,9 @@ export default function SearchPage() {
   return (
     <>
       <PageIntro
-        description="One index for recipes, canonical dishes, works, appearances, ingredients, substitutions, and Japanese or romanized aliases."
-        eyebrow="Full FooDex search"
-        title="Name the craving."
+        description="Search a dish, character craving, anime title, game, ingredient, or alternate spelling. If it belongs at a fandom table, this is where you’ll find it."
+        eyebrow="Search the whole FooDex"
+        title="Remember the scene? Find the food."
       />
       <section className="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">
         <SearchWorkbench />

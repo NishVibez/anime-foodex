@@ -7,6 +7,7 @@ import { PwaRegister } from "@/components/providers/pwa-register";
 import { OfflineSync } from "@/components/providers/offline-sync";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteShell } from "@/components/shell/site-shell";
+import { getViewer } from "@/lib/auth/viewer";
 
 import "@fontsource-variable/noto-sans-jp";
 import "./globals.css";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s · Anime FooDex",
   },
   description:
-    "Discover, cook, and collect independently authored recipes inspired by memorable food moments across animation, games, films, and themed worlds.",
+    "Find the food you remember from anime, games, films, and animated worlds—then cook an independently developed version in your own kitchen.",
   applicationName: "Anime FooDex",
   keywords: [
     "fandom food",
@@ -39,13 +40,13 @@ export const metadata: Metadata = {
     siteName: "Anime FooDex",
     title: "Anime FooDex — The fandom food encyclopedia",
     description:
-      "Turn memorable food moments into things you can safely cook, collect, and share.",
+      "Turn your watchlist into a cooklist with fandom dishes, practical recipes, smart substitutions, and a personal cooking Vault.",
     images: [{ url: "/anime-foodex-hero.webp", width: 1536, height: 1024 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Anime FooDex",
-    description: "The fandom food encyclopedia.",
+    description: "Find the scene. Cook the dish. Complete your FooDex.",
     images: ["/anime-foodex-hero.webp"],
   },
   category: "food",
@@ -66,6 +67,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   // during request-time rendering. Keep the entire document on that boundary so
   // strict-dynamic never blocks hydration on an otherwise static route.
   await connection();
+  const viewer = await getViewer();
 
   return (
     <html
@@ -80,7 +82,9 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           disableTransitionOnChange
           enableSystem
         >
-          <SiteShell>{children}</SiteShell>
+          <SiteShell accessTier={viewer?.accessTier ?? "guest"}>
+            {children}
+          </SiteShell>
           <PwaRegister />
           <OfflineSync />
         </ThemeProvider>

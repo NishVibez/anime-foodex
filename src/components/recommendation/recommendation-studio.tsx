@@ -280,7 +280,7 @@ export function RecommendationStudio() {
         {result ? (
           <ResultPanel result={result} recipeLookup={recipeLookup} />
         ) : (
-          <div className="relative overflow-hidden rounded-3xl border border-[var(--ink)] bg-[var(--ink)] p-7 text-[var(--paper)] shadow-[7px_7px_0_var(--saffron)]">
+          <div className="relative overflow-hidden rounded-3xl border border-[var(--ink)] bg-[#181512] p-7 text-[#f7f0e3] shadow-[7px_7px_0_var(--saffron)]">
             <div className="halftone absolute inset-0 opacity-15" />
             <div className="relative">
               <Sparkles className="text-[var(--saffron)]" size={36} />
@@ -291,9 +291,9 @@ export function RecommendationStudio() {
                 Three choices, zero mystery.
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-white/65">
-                The engine is deterministic and portable: identical answers
-                produce identical rankings on the server or offline. It does not
-                invent recipes.
+                Your answers produce the same reliable matches online and
+                offline. Every result comes from the reviewed FooDex catalog;
+                nothing is invented on the fly.
               </p>
               <div className="mt-7 grid gap-3">
                 {(

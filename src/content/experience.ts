@@ -16,6 +16,7 @@ export type EditorialRecipe = {
   title: string;
   dish: string;
   work: string;
+  connectionLabel: "Seen in" | "Inspired by";
   context: string;
   kind: CollectionKey;
   access: "standard" | "supporter";
@@ -85,25 +86,29 @@ export const collections: Array<{
 export const featuredRecipes: EditorialRecipe[] = [
   {
     slug: "moonlit-miso-ramen",
-    title: "Moonlit miso ramen",
+    title: "Ichiraku-style miso ramen",
     dish: "Miso ramen",
-    work: "Midnight Market Club",
-    context: "A restorative bowl shared after the market closes in episode 7.",
+    work: "Naruto",
+    connectionLabel: "Seen in",
+    context:
+      "Ramen is Naruto Uzumaki’s signature comfort food, most famously served at Ichiraku. This is Anime FooDex’s independently developed miso interpretation.",
     kind: "anime",
     access: "standard",
     difficulty: "Intermediate",
     minutes: 55,
-    tags: ["pork optional", "warming", "noodles"],
+    tags: ["pork optional", "comfort food", "noodles"],
     color: "vermilion",
     teaser:
-      "Deeply savory miso broth, springy noodles, sweet corn, greens, and a jammy egg—built for a weeknight kitchen.",
+      "A deeply savory bowl with springy noodles, sweet corn, greens, and a jammy egg—made for anyone who has ever wanted a seat at Ichiraku.",
   },
   {
     slug: "forest-picnic-onigiri",
-    title: "Forest picnic onigiri",
+    title: "Satsuki’s picnic onigiri",
     dish: "Onigiri",
-    work: "The Moss Post",
-    context: "Packed for a gentle train journey through the cedar country.",
+    work: "My Neighbor Totoro",
+    connectionLabel: "Seen in",
+    context:
+      "Rice-filled bentos help turn everyday family care into one of the film’s warmest food memories. This practical onigiri set is independently authored for real lunchboxes.",
     kind: "film",
     access: "standard",
     difficulty: "Easy",
@@ -111,15 +116,16 @@ export const featuredRecipes: EditorialRecipe[] = [
     tags: ["vegetarian option", "picnic", "rice"],
     color: "jade",
     teaser:
-      "Glossy seasoned rice wrapped around three practical fillings, shaped for lunchboxes and quiet adventures.",
+      "Glossy rice, three practical fillings, and the gentle picnic energy of a Studio Ghibli afternoon.",
   },
   {
     slug: "starlight-berry-parfait",
-    title: "Starlight berry parfait",
+    title: "Stardrop berry parfait",
     dish: "Fruit parfait",
-    work: "Arcade After School",
+    work: "Stardew Valley",
+    connectionLabel: "Inspired by",
     context:
-      "A celebratory café item unlocked after the final rhythm challenge.",
+      "An original celebration of Stardew Valley’s berries, artisan goods, and rare Stardrop magic. It is a fandom interpretation, not an in-game recipe.",
     kind: "game",
     access: "supporter",
     difficulty: "Easy",
@@ -127,15 +133,16 @@ export const featuredRecipes: EditorialRecipe[] = [
     tags: ["vegetarian", "dessert", "no bake"],
     color: "saffron",
     teaser:
-      "A bright stack of berries, vanilla cream, crisp sesame crumble, and jewel-like citrus jelly.",
+      "Layers of berries, vanilla cream, sesame crumble, and jewel-bright jelly for the end of a very good harvest day.",
   },
   {
     slug: "four-winds-vegetable-curry",
     title: "Four-winds vegetable curry",
     dish: "Japanese curry rice",
-    work: "Wayfarer Kingdoms",
+    work: "Avatar: The Last Airbender",
+    connectionLabel: "Inspired by",
     context:
-      "A communal inn meal with variations from every region of the world map.",
+      "An original vegetarian curry built around the Four Nations’ distinct food cultures. It is clearly labeled as an inspired interpretation, not a dish claimed to appear on screen.",
     kind: "animation",
     access: "supporter",
     difficulty: "Intermediate",
@@ -143,14 +150,14 @@ export const featuredRecipes: EditorialRecipe[] = [
     tags: ["vegan", "batch cook", "comforting"],
     color: "ink",
     teaser:
-      "Silky Japanese-style curry packed with roasted vegetables and a fruit-bright finish, made without boxed roux.",
+      "A silky, vegetable-packed curry with four regional finishing paths—ideal for a watch-party table.",
   },
 ];
 
 export const activity = [
   {
     user: "Mira",
-    action: "cooked Moonlit miso ramen",
+    action: "cooked Ichiraku-style miso ramen",
     detail: "“The India noodle swap worked beautifully.”",
     time: "8 min",
     accent: "var(--vermilion)",

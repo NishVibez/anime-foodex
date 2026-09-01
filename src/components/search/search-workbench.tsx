@@ -44,7 +44,7 @@ const entities: SearchEntity[] = [
     (work) => ({
       type: "work" as const,
       title: work,
-      subtitle: "Original demonstration work · occurrence records",
+      subtitle: "Series or world · connected food moments",
       href: "/works" as Route,
       aliases: [work],
     }),
